@@ -1,0 +1,378 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(180, 171, 171);
+    padding: 10px 20px;
+    position: relative;
+}
+
+.logobar {
+    display: flex;
+    width: 70px;
+    height: 80px;
+    max-width: 120px;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.logobar img {
+    border: 5px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-right: 50px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff6600;
+}
+
+.navbar a strong {
+    color: #ff6600;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: rgb(155, 154, 154);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        width: 200px;
+        border-radius: 5px;
+
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+    }
+
+    .navbar.active {
+        opacity: 1;
+        max-height: 300px;
+        padding: 10px 0;
+    }
+
+    .navbar a {
+        text-align: center;
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid #444;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: black;
+        margin-right: 20px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .hamburger.active {
+        transform: rotate(90deg);
+    }
+
+    .navbar a strong {
+        color: #ff6600;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #about {
+    padding: 20px;
+}
+
+.hamburgero {
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    top: 140px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.about-container {
+    margin-left: 10px;
+    position: fixed;
+    margin-top: 140px;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 40%;
+    background-color: rgba(170, 165, 137, 0.959);
+    border-radius: 10px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.8);
+    transition: left 0.5s ease-in-out;
+    z-index: 999;
+}
+
+.slide-in {
+    left: 0;
+}
+
+.car-container {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    display: block;
+}
+
+.car-container img {
+    top: 100px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    animation: moveUp 3s ease-in-out forwards;
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(30vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 40px;
+    color: silver;
+}
+
+@media (max-width: 768px) {
+    #text {
+        display: none;
+    }
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#rentala {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    margin-top: 100vh;
+}
+
+#rentala #carsdetail h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#rentala {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#rentala > div:not(#carsdetail) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#rental-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 1100px;
+    max-width: 80vw;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+#rental-section img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.car-info {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    text-align: center;
+    gap: 10px;
+}
+
+.car-info h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.car-info p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.car-info button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.car-info button:hover {
+    background-color: #cc5500;
+}
+
+hr {
+    width: 80%;
+    border: 0.5px solid #ddd;
+    margin: 10px auto;
+}
+
+@media screen and (max-width: 768px) {
+    #rentala > div:not(#carsdetail) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #rental-section {
+        width: 90%;
+        max-width: 400px;
+        flex: 1 1 calc(100% - 20px);
+    }
+
+    .car-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .car-info p {
+        font-size: 1.4rem;
+    }
+
+    .car-info button {
+        font-size: 1.1rem;
+        padding: 8px 12px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #rental-section {
+        flex: 1 1 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #rental-section {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+footer {
+    background-color: rgb(180, 171, 171);
+    padding: 10px;
+    text-align: center;
+}
+
+footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#box-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#box-info h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#box-info p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+#rentalaw {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    margin-top: 0.1vh;
+}
